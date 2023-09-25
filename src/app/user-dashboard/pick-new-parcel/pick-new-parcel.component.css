@@ -1,0 +1,29 @@
+td{
+  color: black;
+}
+
+@media (max-width: 992px) {
+  .padding-for-container {
+    padding-top: 5rem !important;
+  }
+}
+
+.btn-color-orange{
+  color: #FF5E14;
+}
+
+@media (min-width: 992px){
+  .col-lg-6 {
+    flex: 0 0 auto;
+    width: 70%;
+  }
+}
+
+.text-muted {
+  color: #14b269 !important;
+}
+
+.adjust-tables {
+  flex-direction: column;
+  padding-top: 2rem;
+}

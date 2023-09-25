@@ -1,0 +1,63 @@
+.adjust-tables {
+  flex-direction: column;
+  padding-top: 5rem;
+}
+
+td {
+  color: black;
+}
+
+@media (max-width: 992px) {
+  .padding-for-container {
+    padding-top: 5rem !important;
+  }
+}
+
+.adjust-action-button-confirm {
+  font-size: 2rem;
+  color: green;
+}
+
+.adjust-action-button-cancel {
+  font-size: 2rem;
+  color: Gray;
+  margin-left: 7%;
+}
+
+.adjust-action-button-cancel-active {
+  font-size: 2rem;
+  color: red;
+  margin-left: 7%;
+}
+
+table {
+  border: black;
+}
+
+.table-hover tr:hover {
+  background-color: lightgrey; /* Change to your desired background color */
+  cursor: pointer;
+}
+
+.my-custom-title {
+  color: #ff0000;
+  font-size: 24px;
+}
+
+.my-custom-content {
+  font-weight: bold;
+}
+
+.my-custom-button-class {
+  background-color: #00ff00;
+  color: #ffffff;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.my-custom-table {
+  /* Your table styles here */
+}

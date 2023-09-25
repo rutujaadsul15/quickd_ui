@@ -1,0 +1,404 @@
+<div class="dashboard-wrapper">
+  <div *ngIf="!isCarrierKycUploaded" class="container-xxl py-5">
+    <div class="container">
+      <div class="d-flex justify-content-center form-wrap adjust-tables">
+        <div class="row g-5">
+          <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+            <h4 class="mb-3">Enter Your Onboarding Details</h4>
+            <form [formGroup]="kycDocumentForm" class="needs-validation">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <fieldset disabled>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="firstName"
+                        formControlName="firstName"
+                        placeholder="First Name"
+                      />
+                      <label>First Name</label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-md-6">
+                  <fieldset disabled>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="lastName"
+                        formControlName="lastName"
+                        placeholder="Last Name"
+                      />
+                      <label for="lastName">Last Name</label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-12">
+                  <fieldset disabled>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="mobileNo"
+                        formControlName="mobileNo"
+                        placeholder="Contact number"
+                      />
+                      <label for="contactNo">Mobile Number</label>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="row g-3 mb-3">
+                <h5>Alternative Mobile Number</h5>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="alternativeMobileNo"
+                      formControlName="alternativeMobileNo"
+                      placeholder="Contact number"
+                      appPhoneNumberMaxLength
+                    />
+                    <label>Alternative Mobile Number</label>
+                    <div
+                      *ngIf="kycDocumentForm.get('alternativeMobileNo')!.touched && kycDocumentForm.get('alternativeMobileNo')!.invalid"
+                      class="alert alert-danger">
+                      Enter valid alternative mobile number
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-3 mb-3">
+                <h5>Email </h5>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="email"
+                      formControlName="email"
+                      placeholder="Email"
+                      appEmailFormat
+                    />
+                    <label>Email</label>
+                    <div *ngIf="kycDocumentForm.get('email')!.touched && kycDocumentForm.get('email')!.invalid"
+                         class="alert alert-danger">
+                      Enter valid email id
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <h5>Residential Address </h5>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="address"
+                      formControlName="address"
+                      placeholder="Address"
+                    />
+                    <label>Residential Address</label>
+                    <div *ngIf="kycDocumentForm.get('address')!.touched && kycDocumentForm.get('address')!.invalid"
+                         class="alert alert-danger">
+                      Enter valid residential address
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <h5>Vehicle Details </h5>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="kycVehicleDetails"
+                      formControlName="kycVehicleDetails"
+                      placeholder="Address"
+                    />
+                    <label>Swift, MH16RT5456 etc</label>
+                    <div *ngIf="kycDocumentForm.get('kycVehicleDetails')!.touched && kycDocumentForm.get('kycVehicleDetails')!.invalid"
+                         class="alert alert-danger">
+                      Enter valid vehicle details
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <h5>ID Proof (Driving Licence/Adhaar/Pan Card) </h5>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input type="file" (change)="onSelectFile1($event)">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <h5>Address Proof (Passport/Voter Id) </h5>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input type="file" (change)="onSelectFile2($event)">
+                  </div>
+                </div>
+              </div>
+
+              <!--PREFFERRED PICKUP & DROP LOCATIONS FUTURE SCOPE -->
+              <!--<div class="row g-3 mb-3" formGroupName="pickUpLocation">
+                <h5>Preferred Pick Up Location</h5>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="addressLine"
+                      formControlName="addressLine"
+                      ngx-google-places-autocomplete
+                      (onAddressChange)="handlePickUpAddressChange($event)"
+                      placeholder="Contact number"
+                    />
+                    <label>Start typing your pickup location</label>
+                    <div class="alert alert-danger">
+                      Enter valid pickup location
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-3 mb-3" formGroupName="dropLocation">
+                <h5>Preferred Drop Location</h5>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="dropAddressLine"
+                      formControlName="addressLine"
+                      ngx-google-places-autocomplete
+                      (onAddressChange)="handleDropAddressChange($event)"
+                      placeholder="Contact number"
+                    />
+                    <label>Start typing your drop location</label>
+                    <div class="alert alert-danger">
+                      Enter valid drop location
+                    </div>
+                  </div>
+                </div>
+              </div>-->
+              <div class="row">
+                <div class="col d-flex justify-content-end">
+                  <!-- <button class="btn btn-lg btn-color-orange" type="submit"><span><i
+                     class="bi bi-arrow-right-circle-fill fa-3x">Submit Details</i></span></button>-->
+                  <!-- <button [disabled]="!kycDocumentForm.valid" (click)="performUpload()" class="w-100 btn btn-lg btn-primary"
+                           type="submit">Submit Details</button>-->
+                  <button
+                    [disabled]="!kycDocumentForm.valid"
+                    type="button"
+                    class="btn btn-primary py-3 px-5"
+                    (click)="performUploadToS3()">
+                    Submit Details
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isCarrierKycUploaded" class="container-xxl padding-for-container">
+    <div class="d-flex justify-content-center form-wrap adjust-tables">
+      <div *ngIf="!displayDealsFlag" class="col-md-7 col-lg-8">
+        <div class="col-12 text-center">
+          <p class="text-muted ml-3">
+            Your KYC documents are submitted successfully.
+          </p>
+          <h4 class="mb-3 btn-color-orange">Pick New Parcel</h4>
+        </div>
+        <form [formGroup]="searchDealForm" class="needs-validation">
+          <div class="row g-3">
+            <div class="col-12 pt-2">
+              <fieldset disabled>
+                <div class="form-floating">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="contactNo"
+                    formControlName="carrierContactNumber"
+                    placeholder="contact number"
+                  />
+                  <label>Contact Number</label>
+                  <div
+                    *ngIf="
+                        searchDealForm.get('carrierContactNumber')!.touched &&
+                        searchDealForm.get('carrierContactNumber')!.invalid
+                      "
+                    class="alert alert-danger"
+                  >
+                    Contact number should be valid.
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+
+          <div class="row g-3 pt-2" formGroupName="pickUpLocation">
+            <div class="col-12">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="addressLine"
+                  id="pickUpLocation"
+                  ngx-google-places-autocomplete
+                  (onAddressChange)="handlePickUpAddressChange($event)"
+                  placeholder="Start typing your pick up location..."
+                />
+                <label>Your current location</label>
+              </div>
+              <div
+                *ngIf="
+                    searchDealForm.get('pickUpLocation')!.get('addressLine')!
+                      .touched &&
+                    searchDealForm.get('pickUpLocation')!.get('addressLine')!
+                      .invalid
+                  "
+                class="alert alert-danger"
+              >
+                Address should have valid pincode
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 pt-2" formGroupName="dropLocation">
+            <div class="col-12">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="addressLine"
+                  id="dropLocation"
+                  ngx-google-places-autocomplete
+                  (onAddressChange)="handleDropAddressChange($event)"
+                  placeholder="Start typing your drop location..."
+                />
+                <label>Your destination</label>
+              </div>
+              <div
+                *ngIf="
+                    searchDealForm.get('dropLocation')!.get('addressLine')!
+                      .touched &&
+                    searchDealForm.get('dropLocation')!.get('addressLine')!
+                      .invalid
+                  "
+                class="alert alert-danger"
+              >
+                Address should be valid
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 pt-2">
+            <div class="col-12">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="vehicleDetails"
+                  id="vehicleDetails"
+                  placeholder="Vehicle details like vehicle number, color, etc..."
+                />
+                <label>Vehicle details (optional)</label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="d-flex flex-row d-flex justify-content-evenly pt-3 pb-3"
+          >
+            <button
+              [disabled]="!searchDealForm.valid"
+              type="button"
+              class="btn btn-primary py-3 px-5"
+              (click)="searchDeals()"
+            >
+              Check For Deals
+            </button>
+          </div>
+        </form>
+      </div>
+      <div
+        *ngIf="displayDealsFlag && !selectedDeal && AVAILABLE_DEAL_LIST"
+        class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+          <div class="col-12 text-center">
+            <h3 class="ml-3">Available parcels to pick up</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead style="background-color: lightgray">
+              <tr>
+                <!-- <th>Sr.No</th> -->
+                <th (click)="sort('senderFirstName')"><h6>Sender</h6></th>
+                <th><h6>Pickup</h6></th>
+                <th><h6>Drop</h6></th>
+                <th><h6>Contact</h6></th>
+                <th (click)="sort('dealTotal')"><h6>Amount</h6></th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr
+                *ngFor="
+                      let deal of AVAILABLE_DEAL_LIST | paginate : config;
+                      let i = index
+                    ">
+                <!-- <td>{{i+1}}</td> -->
+                <td>
+                  <!-- <img _ngcontent-jol-c118="" src="../../../assets/img/card-image-1.jpg" width="40" height="40"
+                  class="mr-3 rounded-circle img-thumbnail p-0 shadow-sm"> -->
+                  {{
+                  deal!.sender!.senderFirstName +
+                  " " +
+                  deal!.sender!.senderLastName
+                  }}
+                </td>
+                <td>{{ deal!.pickUpLocation!.city }}<br/></td>
+                <td>{{ deal!.dropLocation!.city }}</td>
+                <td>{{ deal!.sender!.senderContactNo }}</td>
+                <td>₹ {{ deal?.dealTotalAsCarrier || 100 }}</td>
+                <td>
+                  <label>
+                    <button
+                      type="button"
+                      (click)="checkDeal(deal)"
+                      class="btn btn-dark"
+                    >
+                      View & Accept
+                    </button>
+                  </label>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <pagination-controls
+              (pageChange)="pageChanged($event)"
+            ></pagination-controls>
+          </div>
+        </div>
+      </div>
+      <template id="submitCheckDealForm">
+        <swal-title>
+          Please submit required details before checking the deals
+        </swal-title>
+        <swal-icon type="warning" color="red"></swal-icon>
+        <swal-button type="confirm"> Ok</swal-button>
+      </template>
+    </div>
+  </div>
+</div>

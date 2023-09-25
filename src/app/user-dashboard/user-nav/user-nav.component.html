@@ -1,0 +1,47 @@
+<div id="navbarTogglerDemo02" class="menu-navbar collapse navbar-collapse d-flex flex-column flex-shrink-0 p- text-white bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark inner-navbar">
+    <div class="container-fluid d-flex justify-content-between">
+      <!-- Remove the button for the hamburger menu -->
+      <div class="" id="navbarNavAltMarkup" style="width: 100%">
+        <ul class="nav nav-pills flex-row flex-lg-column mb-auto justify-content-around"> <!-- Change flex-column to flex-row for smaller screens and flex-lg-column for larger screens -->
+          <li class="nav-item " [class.active]="isCurrentRoute('/dashboard/submitdeal') || isDefaultRoute()">
+            <a class="nav-link zoom px-3 py-3 text-white" routerLink="/dashboard/submitdeal" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+              <i class="fa-solid fa-paper-plane fa-lg"></i> <!-- Added fa-lg for larger icons -->
+            </a>
+              <span class="d-block icon-label mt-1">Send Parcel</span>
+          </li>
+          <li class="nav-item " [class.active]="isCurrentRoute('/dashboard/searchdeals')">
+            <a class="nav-link px-3 py-3 zoom text-white" routerLink="/dashboard/searchdeals" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+              <i class="fas fa-shipping-fast fa-lg"></i> <!-- Added fa-lg for larger icons -->
+            </a>
+            <span class="d-block icon-label mt-1">Pick Parcel</span>
+          </li>
+          <li class="nav-item " [class.active]="isCurrentRoute('/dashboard/mysubmittedparcels')">
+            <a class="nav-link zoom px-3 py-3 text-white" routerLink="/dashboard/mysubmittedparcels" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+              <i class="fa-solid fa-list-check fa-lg"></i>
+            </a>
+            <span class="d-block icon-label mt-1">My bookings</span>
+          </li>
+          <li class="nav-item " [class.active]="isCurrentRoute('/dashboard/mypickupparcels')">
+            <a class="nav-link zoom px-3 py-3 text-white" routerLink="/dashboard/mypickupparcels" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+              <i class="fa-solid fa-truck-pickup fa-lg"></i> <!-- Added fa-lg for larger icons -->
+            </a>
+            <span class="d-block icon-label mt-1">My Pickups</span>
+          </li>
+          <li class="nav-item " [class.active]="isCurrentRoute('/dashboard/myfuturetrips')">
+            <a class="nav-link zoom px-3 py-3 text-white" routerLink="/dashboard/myfuturetrips" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+              <i class="fa-solid fa-clock fa-lg"></i> <!-- Added fa-lg for larger icons -->
+            </a>
+            <span class="d-block icon-label mt-1">My Trips</span>
+          </li>
+          <li class="nav-item " [class.active]="isCurrentRoute('/dashboard/wallet')">
+            <a class="nav-link zoom px-3 py-3 text-white" routerLink="/dashboard/wallet" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+              <i class="fa-solid fa-wallet fa-lg"></i> <!-- Added fa-lg for larger icons -->
+            </a>
+            <span class="d-block icon-label mt-1">Wallet</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

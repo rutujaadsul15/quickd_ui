@@ -1,0 +1,33 @@
+.navbar .navbar-brand {
+  position: relative;
+  padding-right: 38px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  background: var(--primary);
+}
+
+.margin-left{
+  margin-left: 25px;
+  border-color: white;
+}
+
+.navbar-nav {
+  margin-right: 0;
+}
+
+
+
+.navbar-light .navbar-toggler{
+  border-color: white;
+  border-width: 0;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .adjust-nav{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

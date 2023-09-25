@@ -1,0 +1,59 @@
+.menu-navbar {
+    height: 200vh;
+    z-index: 1000;
+    /* text-align: center; */
+    /* position: relative; */
+    /* width: 100%; */
+}
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.08);
+    background-color: #FF5E14;
+}
+
+
+#navbarTogglerDemo02 {
+    z-index: 100;
+}
+
+@media screen and (max-width: 992px) {
+    .menu-navbar {
+        height: auto;
+        position: absolute;
+        width: 100%;
+    }
+}
+
+
+/* .nav-item:hover .nav-link {
+    background-color: orange;
+  }
+
+  .nav-item .nav-link.active {
+    background-color: orange;
+    color: white;
+  } */
+
+
+  .nav-item.active > .nav-link {
+    background-color: #FF5E14 !important;
+    color: white;
+  }
+.nav-pills .nav-link {
+  border-radius: 100%;
+}
+.icon-label {
+  font-size: 9px; /* Adjust the font size as needed */
+  max-width: 60px; /* Add a maximum width to prevent text overflow */
+  text-align: center; /* Center-align the text */
+}
+
+.inner-navbar {
+  width: 100%;
+}
+
+

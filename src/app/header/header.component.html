@@ -1,0 +1,65 @@
+<!-- Topbar Start -->
+<div class="container-fluid bg-dark px-0">
+  <div class="row g-0 d-none d-lg-flex">
+    <div class="col-lg-6 ps-5 text-start">
+      <div class="h-100 d-inline-flex align-items-center text-white">
+        <span>Follow Us:</span>
+        <a class="btn btn-link text-light" href="https://instagram.com/pickmyparcel?igshid=NGExMmI2YTkyZg=="
+           target="_blank"><i class="fab fa-instagram"></i
+        ></a>
+        <a class="btn btn-link text-light" href="https://www.facebook.com/people/Pickmyparcel/100093154909018/"
+           target="_blank"><i class="fab fa-facebook-f"></i
+        ></a>
+        <a class="btn btn-link text-light" href="https://youtube.com/@Pickmyparcel"
+           target="_blank"><i class="fab fa-youtube"></i
+        ></a>
+        <a class="btn btn-link text-light" href="https://twitter.com/pickmyparcel"
+           target="_blank"><i class="fab fa-twitter"></i
+        ></a>
+        <a class="btn btn-link text-light" href="https://www.linkedin.com/in/pickmyparcel-595252280/"
+           target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="col-lg-6 text-end">
+      <div
+        class="h-100 topbar-right d-inline-flex align-items-center text-white py-2 px-5">
+        <span class="fs-5 fw-bold me-2"><i class="fa fa-phone-alt me-2"></i>Call Us:</span>
+        <span class="fs-5 fw-bold me-2">+919960743366,</span>
+        <span class="fs-5 fw-bold">+919404771200</span>
+      </div>
+    </div>
+  </div>
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-0">
+    <div class="d-flex adjust-nav">
+      <a href="index.html" class="navbar-brand ps-2">
+        <!--<h1 class="text-white m-0">pickmyparcel.in</h1>-->
+        <img class="img-fluid" src="../../assets/img/PmpLogo.JPG">
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler me-0"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto p-4 p-lg-0">
+        <a *ngIf="!validLogin()" href="index.html" class="nav-item nav-link active">Home</a>
+        <a *ngIf="!validLogin()" href="feature.html" href="/features" class="nav-item nav-link">Features</a>
+        <a *ngIf="!validLogin()" href="service.html" href="/services" class="nav-item nav-link">Services</a>
+        <a *ngIf="!validLogin()" href="about.html" href="/aboutus" class="nav-item nav-link">About Us</a>
+        <a *ngIf="!validLogin()" href="contact.html" href="/contactus" class="nav-item nav-link">Contact Us</a>
+        <a *ngIf="!validLogin()" href="/login" class="nav-item nav-link">Sign In</a>
+        <a *ngIf="!validLogin()" href="/signup" class="nav-item nav-link">Register</a>
+        <a *ngIf="validLogin()" class="nav-item nav-link">Hello, {{firstName}}</a>
+        <a *ngIf="validLogin()" (click)="logout()" class="nav-item nav-link">Logout</a>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- Topbar End -->
+
+
+<!-- Navbar End -->

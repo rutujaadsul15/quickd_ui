@@ -1,0 +1,54 @@
+<div class="container-xxl">
+  <div class="container mt-2">
+          <form [formGroup]="signupForm" class="text-center">
+            <img class="d-block mx-auto" src="../../assets/img/SigninLogo.JPG" alt="" width="75" height="62">
+            <h2>Sign up</h2>
+
+              <div class="form-group form-floating">
+                <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First name">
+                <label for="firstName">First name</label>
+              </div>
+              <div *ngIf="signupForm.controls['firstName'].invalid && signupForm.controls['firstName'].touched" class="alert alert-danger">
+                First name is required
+              </div>
+
+
+              <div class="form-group form-floating mt-3">
+                <input type="text" class="form-control" id="lastName" formControlName="lastName"  placeholder="Last Name">
+                <label for="lastName">Last name</label>
+              </div>
+              <div *ngIf="signupForm.controls['lastName'].invalid && signupForm.controls['lastName'].touched" class="alert alert-danger">
+                Last name is required
+              </div>
+
+
+              <div class="form-group form-floating mt-3">
+                  <input type="text" class="form-control" id="contactNumber" appPhoneNumberMaxLength formControlName="contactNo" placeholder="contact number">
+                  <label for="contactNumber">Mobile Number</label>
+              </div>
+              <div *ngIf="signupForm.controls['contactNo'].invalid && signupForm.controls['contactNo'].touched" class="alert alert-danger">
+                Contact number is required
+               </div>
+
+
+              <div class="form-group form-floating mt-3">
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+                <label for="password">Password</label>
+              </div>
+              <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched" class="alert alert-danger">
+                Password is required
+              </div>
+
+            <hr class="my-4">
+            <button [disabled]="!signupForm.valid || registerOtpFlag" class="w-100 btn btn-primary btn-lg mb-2" (click)="sendRegisterOTP()" type="button">Send OTP</button>
+            <div *ngIf="registerOtpFlag" class="form-group form-floating mt-2 mb-3">
+              <input type="text" class="form-control" id="otp" [(ngModel)]="registerOtp" [ngModelOptions]="{standalone: true}"  placeholder="Enter OTP">
+              <label for="otp">Enter OTP</label>
+              <hr class="my-3">
+             <!-- <p class=" mb-3 text-muted">Didn't receive otp? <a (click)="sendRegisterOTP()"><strong>Click to resend</strong></a></p>-->
+            </div>
+            <button [disabled]="registerOtp===''" class="w-100 btn btn-primary btn-lg mb-5" (click)="verifyAndSignUp()" type="button">Verify OTP & Sign Up</button>
+          </form>
+<!--  <script src="../../assets/js/form-validation.js"></script>-->
+</div>
+</div>

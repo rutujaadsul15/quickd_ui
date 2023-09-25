@@ -1,0 +1,14 @@
+/* This will hide the div on laptop screens */
+@media (max-width: 992px) {
+    .my-div {
+      display: none;
+    }
+  }
+  
+  /* This will show the div on mobile screens */
+  @media (min-width: 991px) {
+    .my-div {
+      display: block;
+    }
+  }
+  

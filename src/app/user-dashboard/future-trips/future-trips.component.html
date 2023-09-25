@@ -1,0 +1,131 @@
+<div class="dashboard-wrapper">
+  <div class="container-xxl padding-for-container">
+    <div class="d-flex justify-content-center form-wrap adjust-tables">
+      <div class="col-md-7 col-lg-8">
+        <div class="col-12 col-md-6 custom-text-alignment">
+          <h4 class="mb-3 btn-color-orange">Planning to travel...?</h4>
+          <h4 class="mb-3">Add your trip in advance</h4>
+        </div>
+
+        <form [formGroup]="addTripForm" class="needs-validation">
+          <div class="row g-3 pt-2" formGroupName="pickUpLocation">
+            <div class="col-12">
+              <div class="form-floating">
+                <input type="text" class="form-control" formControlName="addressLine" ngx-google-places-autocomplete
+                       (onAddressChange)="handlePickUpAddressChange($event)"
+                       placeholder="Start typing your pick up location..."/>
+                <label>Pickup location</label>
+              </div>
+              <!--<div
+                *ngIf="addTripForm.get('pickUpLocation')!.get('addressLine')!.touched &&addTripForm.get('pickUpLocation')!.get('addressLine')!.invalid"
+                class="alert alert-danger">
+                Address should have valid pincode
+              </div>-->
+              <div
+                *ngIf="addTripForm.get('pickUpLocation')!.touched && addTripForm.get('pickUpLocation')!.invalid"
+                class="alert alert-danger">
+                Please type & select suggested address from dropdown menu.
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 pt-2" formGroupName="dropLocation">
+            <div class="col-12">
+              <div class="form-floating">
+                <input type="text" class="form-control" formControlName="addressLine" id="address"
+                       ngx-google-places-autocomplete (onAddressChange)="handleDropAddressChange($event)"
+                       placeholder="Start typing your drop location..."/>
+                <label>Drop location</label>
+              </div>
+              <!-- <div
+                 *ngIf="addTripForm.get('dropLocation')!.get('addressLine')!.touched &&addTripForm.get('dropLocation')!.get('addressLine')!.invalid"
+                 class="alert alert-danger">
+                 Address should be valid
+               </div>-->
+              <div
+                *ngIf="addTripForm.get('dropLocation')!.touched && addTripForm.get('dropLocation')!.invalid"
+                class="alert alert-danger">
+                Please type & select suggested address from dropdown menu.
+              </div>
+            </div>
+          </div>
+          <div class="row g-3 pt-2">
+            <div class="form-floating">
+              <div class="date-time-picker-adjust" style="font-size: 16px">
+                <ngx-datetime-picker [(selectedDateTime)]="tripDateAndTime"></ngx-datetime-picker>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="row g-3 pt-2">
+            <div class="col-12">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="vehicleDetails"
+                  id="vehicleDetails"
+                  placeholder="Vehicle details like vehicle number, color, etc..."
+                />
+                <label>Calende will come here</label>
+              </div>
+            </div>
+          </div> -->
+          <div
+            class="d-flex flex-row d-flex justify-content-evenly pt-3 pb-3"
+          >
+            <button
+              [disabled]="!addTripForm.valid"
+              type="button"
+              class="btn btn-primary py-3 px-5"
+              (click)="submitFutureTrip()"
+            >
+              Add New Trip
+            </button>
+          </div>
+        </form>
+      </div>
+      <!------******************************MY FUTURE TRIPS***********************************************---------->
+      <div *ngIf="futureTripList && futureTripList.length>0">
+        <h4 class="mb-3 col-12 text-center btn-color-orange">My Future Trips</h4>
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+          <div class="table-responsive">
+            <table class="table align-middle table-hover">
+              <thead style="background-color: lightgray;">
+              <tr>
+                <th><h5>Pickup</h5></th>
+                <th><h5>Drop</h5></th>
+                <th><h5>Date</h5></th>
+               <!-- <th><h5>Status</h5></th>-->
+                <th><h5>Action</h5></th>
+              </tr>
+              </thead>
+              <tbody>
+
+              <tr *ngFor="let trip of futureTripList| paginate: config_for_futureTrips;  let i=index">
+                <td (click)="viewTripDetails(trip)"><h6>{{trip!.pickupCity + ' ' + trip!.pickupPinCode}}</h6></td>
+                <td (click)="viewTripDetails(trip)"><h6>{{trip!.dropCity + ' ' + trip!.dropPinCode}}</h6></td>
+                <td (click)="viewTripDetails(trip)"><h6>{{trip!.dateAndTime | date:'dd-MMM-yyyy'}} {{trip!.dateAndTime | date:'shortTime'}}</h6></td>
+               <!-- <td ><h6>status will come here</h6></td>-->
+                <td><i class="bi bi-trash-fill adjust-action-button-trash" (click)="deleteFutureTrip(trip)"></i>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <pagination-controls (pageChange)="pageChangedForFutureTrips($event)"></pagination-controls>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!futureTripList || futureTripList.length === 0">
+        <div class="panel panel-default text-center">
+          <div class="panel-body">
+            <h4>No trips added</h4>
+            <!-- You can add additional content or styling here for the "No trips added" message -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

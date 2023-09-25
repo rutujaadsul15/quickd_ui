@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+</head>
+
+<body>
+<div class="container mt-2">
+  <div *ngIf="!paymentSuccessFlag" class="py-5 text-center mt-5 mt-md-0">
+    <img class="d-block mx-auto mb-4" src="../../../assets/img/SigninLogo.JPG" alt="" width="75" height="62">
+    <h2>Your Wallet</h2>
+  </div>
+  <main *ngIf="!paymentSuccessFlag" class="wallet-alignment">
+    <div class="row">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Wallet Balance</span>
+          <span *ngIf="walletResponse" class="badge bg-primary rounded-pill">₹ {{walletResponse.walletBalance}}</span>
+        </h4>
+       <!-- <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </form>-->
+      <div *ngIf="userContactNumber && firstName && lastName" class="col-md-7 col-lg-8">
+        <h4 class="mb-3">User Details</h4>
+        <form class="needs-validation">
+          <fieldset disabled>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-label">First name</label>
+                <h6 class="mb-3">{{firstName}}</h6>
+              </div>
+
+              <div class="col-sm-6">
+                <label class="form-label">Last name</label>
+                <h6 class="mb-3">{{lastName}}</h6>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Registered Mobile Number</label>
+                <div class="input-group has-validation">
+                  <h6 class="mb-3">{{userContactNumber}}</h6>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <hr class="my-4">
+          <div class="row">
+            <div class="col-12 col-md-6 d-flex justify-content-start mb-3 mb-md-0">
+              <button class="btn btn-primary py-3 px-1 mr-2 btn-equal equal-height-btn" (click)="openDeposit()">Deposit Money</button>
+            </div>
+            <div class="col-12 col-md-6 d-flex justify-content-start">
+              <button class="btn btn-primary py-3 px-1 btn-equal equal-height-btn" (click)="openWithdraw()">Withdraw Money</button>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col">
+              <div *ngIf="showDeposit" id="depositDiv">
+                <h3>Deposit Money</h3>
+                <form>
+                  <div class="mb-3 form-floating">
+                    <input type="number" class="form-control" id="depositAmount" placeholder="Enter UPI ID" [(ngModel)]="depositAmount" [ngModelOptions]="{standalone: true}"/>
+                    <label for="depositAmount" class="form-label">Enter Deposit Amount</label>
+                  </div>
+                  <div class="mb-3 form-floating">
+                    <input type="text" class="form-control" id="depositUpiId" placeholder="Enter UPI ID" [(ngModel)]="depositUpiId" [ngModelOptions]="{standalone: true}"/>
+                    <label for="depositUpiId" class="form-label">UPI ID</label>
+                  </div>
+                  <div class="col d-flex justify-content-start mt-2 mb-2 mb-md-0">
+                    <button class="btn btn-primary py-3 px-5" type="submit" (click)="submitDeposit()">Submit</button>
+                  </div>
+                </form>
+              </div>
+
+              <div *ngIf="showWithdraw" id="withdrawDiv">
+                <h3>Withdraw Money</h3>
+                <form>
+                  <div class="mb-3 form-floating">
+                    <input type="number" class="form-control" id="withdrawAmount" placeholder="Enter UPI ID" [(ngModel)]="withdrawAmount" [ngModelOptions]="{standalone: true}"/>
+                    <label for="withdrawAmount" class="form-label">Enter Withdraw Amount</label>
+                  </div>
+                  <div class="mb-3 form-floating">
+                    <input type="text" class="form-control" id="upiId" placeholder="Enter UPI ID" [(ngModel)]="withdrawUpiId" [ngModelOptions]="{standalone: true}"/>
+                    <label for="upiId" class="form-label">UPI ID</label>
+                  </div>
+                  <div class="col d-flex justify-content-start mt-2 mb-2 mb-md-0">
+                    <button class="btn btn-primary py-3 px-5" type="submit" (click)="submitWithdraw()">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+<!--<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="form-validation.js"></script>-->
+</body>
+</html>

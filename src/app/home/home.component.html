@@ -1,0 +1,731 @@
+<!-- Carousel Start -->
+<div class="container-fluid px-0 mb-5">
+  <div id="header-carousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="active">
+        <img class="carousel-image desktop-image" src="../../assets/img/Pickmyparcel.gif" alt="Laptop Image">
+        <img class="carousel-image mobile-image" src="../../assets/img/mobileview.gif" alt="Mobile Image">
+      </div>
+    </div>
+  </div>
+  <div id="header-carousel2" class="carousel carousel-dark slide" data-bs-ride="carousel" data-bs-pause="true">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="container mb-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 text-start text-center">
+              <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight">Fast deliveries made
+                simple</p>
+              <h6 class="display-4 text-black mb-5 animated slideInRight">Pick, Drop and Earn On Your Way</h6>
+              <a [routerLink]="getSendParcelLink()" class="btn btn-primary py-3 mx-2 px-5 animated slideInRight">Send Parcel</a>
+              <a [routerLink]="getPickNewParcelLink()" class="btn btn-primary py-3 px-5 animated slideInRight">Pickup Parcel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container mb-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 text-start text-center">
+              <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight">Your parcel our priority</p>
+              <h6 class="display-4 text-black mb-5 animated slideInRight">Affordable Pricing Options</h6>
+              <a [routerLink]="getSendParcelLink()" class="btn btn-primary py-3 mx-2 px-5 animated slideInRight">Send Parcel</a>
+              <a [routerLink]="getPickNewParcelLink()" class="btn btn-primary py-3 px-5 animated slideInRight">Pickup Parcel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container mb-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 text-start text-center">
+              <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight">Quick - Efficient -
+                Trusted</p>
+              <h6 class="display-4 text-black mb-5 animated slideInRight">Deliver Parcels and Earn</h6>
+              <a [routerLink]="getSendParcelLink()" class="btn btn-primary py-3 mx-2 px-5 animated slideInRight">Send Parcel</a>
+              <a [routerLink]="getPickNewParcelLink()" class="btn btn-primary py-3 px-5 animated slideInRight">Pickup Parcel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container mb-5">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 text-start text-center">
+              <p class="fs-5 fw-medium text-primary text-uppercase animated slideInRight">Swift - Reliable -
+                pickmyparcel</p>
+              <h6 class="display-4 text-black mb-5 animated slideInRight">Safe, Secure, Quick Parcel Delivery</h6>
+              <a [routerLink]="getSendParcelLink()" class="btn btn-primary py-3 mx-2 px-5 animated slideInRight">Send Parcel</a>
+              <a [routerLink]="getPickNewParcelLink()" class="btn btn-primary py-3 px-5 animated slideInRight">Pickup Parcel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <button class="d-none d-md-block carousel-control-prev" type="button" data-bs-target="#header-carousel2" data-bs-slide="prev">
+       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+       <span class="visually-hidden">Previous</span>
+     </button>
+     <button class="d-none d-md-block carousel-control-next" type="button" data-bs-target="#header-carousel2" data-bs-slide="next">
+       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+       <span class="visually-hidden">Next</span>
+     </button>-->
+
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#header-carousel2" data-bs-slide-to="0" class="active" aria-current="true"
+              aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#header-carousel2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#header-carousel2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#header-carousel2" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+  </div>
+</div>
+<!-- Carousel End -->
+
+
+<!-- About Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5 mb-5">
+      <div class="col-lg-6">
+        <div class="row gx-3 h-100">
+          <div class="col-12 align-self-start wow fadeInUp" data-wow-delay="0.1s">
+            <img class="img-fluid" src="../../assets/img/allthebest2.jpeg">
+          </div>
+          <!--<div class="col-6 align-self-end wow fadeInDown" data-wow-delay="0.1s">
+            <img class="img-fluid" src="../../assets/img/about-2.jpg">
+          </div>-->
+        </div>
+      </div>
+      <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+       <!-- <h3 class="display-5 mb-4">What is PickMyParcel?</h3>-->
+        <h6 class="display-6 mb-4">We Are Connecting Senders, Carriers & Recievers</h6>
+        <p class="mb-4">Whether you're a sender looking for a convenient way to send a parcel or a carrier looking to
+          earn money on the go, we're here to help.
+          Our platform is easy to use and offers flexible payment and pickup options to suit your needs.
+        </p>
+        <div class="d-flex align-items-center mb-4">
+          <div class="flex-shrink-0 bg-primary p-4">
+            <h1 class="display-2">24x7</h1>
+            <h5 class="text-white">Reliable</h5>
+            <h5 class="text-white">pickyparcel.in</h5>
+          </div>
+          <div class="ms-4">
+            <p><i class="fa fa-check text-primary me-2"></i>Quick Pickup</p>
+            <p><i class="fa fa-check text-primary me-2"></i>Cost Effective</p>
+            <p><i class="fa fa-check text-primary me-2"></i>Safe & Secure</p>
+            <p><i class="fa fa-check text-primary me-2"></i>Transparent Pricing</p>
+            <p><i class="fa fa-check text-primary me-2"></i>Deliver & Earn</p>
+          </div>
+        </div>
+        <div class="row pt-2">
+          <div class="col-sm-6 mb-3">
+            <div class="d-flex align-items-center">
+              <a href="mailto:info@pickmyparcel.in">
+                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                  <i class="fa fa-envelope text-white"></i>
+                </div>
+              </a>
+              <div class="ms-3">
+                <h5 class="mb-0">Email Us</h5>
+                <h6 class="mb-0">info@pickmyparcel.in</h6>
+                <h6 class="mb-0">pickmyparcel1@gmail.com</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center">
+              <a href="tel:+919960743366">
+                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                  <i class="fa fa-phone-alt text-white"></i>
+                </div>
+              </a>
+              <div class="ms-3">
+                <h5 class="mb-0">Contact Us</h5>
+                <h6 class="mb-0">+919960743366</h6>
+                <h6 class="mb-0">+919404771200</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About End -->
+
+<!-- What is PickMyParcel starts -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <section class="section bg-white text-center">
+        <h3 class="wow-outer">
+          <!-- <span class="wow slideInUp" style="visibility: visible; animation-name: slideInUp;">
+             How does it work?
+           </span>-->
+          <h4 class="display-6 mb-4">🌐 What is PickMyParcel?</h4>
+        </h3>
+        <p class="wow-outer" style="margin-top:20px; text-align: justify">
+            <span class="text-width-1 wow slideInDown"
+                  style="visibility: visible; animation-name: slideInDown; font-weight: 400;">
+              PickMyParcel is not just a delivery service, it's a community-driven platform that connects senders, carriers, and receivers seamlessly.
+              We're changing the game by giving everyone the power to become a part of our delivery network, making parcel delivery a shared experience.
+            </span>
+        </p>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- What is PickMyParcel ends -->
+
+<!-- Earn While You Travel starts -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <section class="section bg-white text-center">
+        <h3 class="wow-outer">
+          <!-- <span class="wow slideInUp" style="visibility: visible; animation-name: slideInUp;">
+             How does it work?
+           </span>-->
+          <h4 class="display-6 mb-4">💼 Earn While You Travel!</h4>
+        </h3>
+        <p class="wow-outer" style="margin-top:20px; text-align: justify">
+            <span class="text-width-1 wow slideInDown"
+                  style="visibility: visible; animation-name: slideInDown; font-weight: 400;">
+              Heading somewhere? Make your journey count!
+              As a carrier, you can pick up parcels en route to your destination and earn along the way. It's a win-win for everyone – you get to make extra cash, senders enjoy hassle-free deliveries, and
+              receivers eagerly await their packages.
+            </span>
+        </p>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- Earn While You Travel ends -->
+
+<!-- How Does It Work starts -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <section class="section bg-white text-center">
+        <h3 class="wow-outer">
+          <!-- <span class="wow slideInUp" style="visibility: visible; animation-name: slideInUp;">
+             How does it work?
+           </span>-->
+          <h4 class="display-6 mb-4">🚀 How Does It Work?</h4>
+        </h3>
+        <p class="wow-outer" style="margin-top:20px; text-align: justify">
+            <span class="text-width-1 wow slideInDown"
+                  style="visibility: visible; animation-name: slideInDown; font-weight: 400;">
+              As a sender, you can easily schedule a parcel for delivery through our user-friendly website.
+              But here's the exciting twist – anyone heading in the direction of your parcel's destination can become a carrier and earn by delivering it for you! Imagine turning your everyday commute into an opportunity to make a difference and earn extra cash.            </span>
+        </p>
+        <div class="row justify-content-center">
+          <!-- Added the 'row' class and 'justify-content-center' to center the images -->
+          <div class="col-md-2 col-sm-4 col-xs-12">
+            <img src="../../assets/img/HowItWorks1.png">
+            <p style="text-align: center">
+              To begin, log in to pickmyparcel.in. Click on "Send New Parcel", enter your parcel details, make the
+              payment & be ready with your parcel.
+            </p>
+          </div>
+          <div class="col-md-2 col-sm-4 col-xs-12">
+            <img src="../../assets/img/HowItWorks2.png">
+            <p style="text-align: center">
+              Our authorized carrier, who will be traveling to the desired destination of your parcel, will get in
+              touch with you and collect your package.
+            </p>
+          </div>
+          <div class="col-md-2 col-sm-4 col-xs-12">
+            <img src="../../assets/img/HowItWorks5.png">
+            <p style="text-align: center">
+              Once you have handed over your parcel to the carrier, simply lock the deal on our portal by selecting
+              deal under "My Submitted Parcels" menu.
+            </p>
+          </div>
+          <div class="col-md-2 col-sm-4 col-xs-12">
+            <img src="../../assets/img/HowItWorks3.png">
+            <p style="text-align: center">
+              The carrier will safely transport your parcel to its intended destination.
+            </p>
+          </div>
+          <div class="col-md-2 col-sm-4 col-xs-12">
+            <img src="../../assets/img/HowItWorks4.png">
+            <p style="text-align: center">
+              Once reached at the desired location, carrier will contact receiver regarding parcel collection.
+            </p>
+          </div>
+          <div class="col-md-2 col-sm-4 col-xs-12">
+            <img src="../../assets/img/HowItWorks6.png">
+            <p style="text-align: center">
+              The carrier will hand over the parcel to the receiver after validating the OTP that was sent to the
+              receiver at the time of booking.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<!-- How Does It Work starts -->
+
+<!-- Facts Start -->
+<!-- <div class="container-fluid facts my-5 p-5">
+    <div class="row g-5">
+        <div class="col-md-6 col-xl-3 wow fadeIn" data-wow-delay="0.1s">
+            <div class="text-center border p-5">
+                <i class="fa fa-certificate fa-3x text-white mb-3"></i>
+                <h1 class="display-2 text-primary mb-0" data-toggle="counter-up">25</h1>
+                <span class="fs-5 fw-semi-bold text-white">Years Experience</span>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3 wow fadeIn" data-wow-delay="0.3s">
+            <div class="text-center border p-5">
+                <i class="fa fa-users-cog fa-3x text-white mb-3"></i>
+                <h1 class="display-2 text-primary mb-0" data-toggle="counter-up">135</h1>
+                <span class="fs-5 fw-semi-bold text-white">Team Members</span>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3 wow fadeIn" data-wow-delay="0.5s">
+            <div class="text-center border p-5">
+                <i class="fa fa-users fa-3x text-white mb-3"></i>
+                <h1 class="display-2 text-primary mb-0" data-toggle="counter-up">957</h1>
+                <span class="fs-5 fw-semi-bold text-white">Happy Clients</span>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3 wow fadeIn" data-wow-delay="0.7s">
+            <div class="text-center border p-5">
+                <i class="fa fa-check-double fa-3x text-white mb-3"></i>
+                <h1 class="display-2 text-primary mb-0" data-toggle="counter-up">1839</h1>
+                <span class="fs-5 fw-semi-bold text-white">Projects Done</span>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Facts End -->
+
+
+<!-- Features Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="position-relative me-lg-4">
+          <img class="img-fluid w-100" src="../../assets/img/carriertorec.jpeg" alt="">
+          <span
+            class="position-absolute top-50 start-100 translate-middle bg-white rounded-circle d-none d-lg-block"
+            style="width: 120px; height: 120px;"></span>
+          <button type="button" class="btn-play" data-bs-toggle="modal"
+                  data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+            <span></span>
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+        <p class="fw-medium text-uppercase text-primary mb-2">Why choose us?</p>
+        <h3 class="display-5 mb-4">Few Reasons Why People Choose Us!</h3>
+        <p class="mb-4">Our mission is to provide a fast, flexible, and cost-effective parcel delivery service that
+          helps people save time and money.
+          We believe that our unique business model, which connects senders and carriers through an easy-to-use online
+          platform, can revolutionize the way parcels are delivered.
+        </p>
+        <div class="row gy-4">
+          <div class="col-12">
+            <div class="d-flex">
+              <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                <i class="fa fa-check text-white"></i>
+              </div>
+              <div class="ms-4">
+                <h4>Cost-effective pricing options for different parcel sizes and weights</h4>
+                <span>We offer cost-effective pricing options based on parcel size and weight,
+                                      so our customers can send parcels without breaking the bank.</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="d-flex">
+              <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                <i class="fa fa-check text-white"></i>
+              </div>
+              <div class="ms-4">
+                <h4>Flexibility and convenience in sending and receiving parcels</h4>
+                <span>Our platform connects senders and carriers in real-time,
+                                      providing a flexible and convenient solution for sending and receiving parcels.</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="d-flex">
+              <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                <i class="fa fa-check text-white"></i>
+              </div>
+              <div class="ms-4">
+                <h4>24/7 Customer Support</h4>
+                <span>Our customer support team is available 24/7 to answer any questions or concerns our customers may have.</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="d-flex">
+              <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                <i class="fa fa-check text-white"></i>
+              </div>
+              <div class="ms-4">
+                <h4>Opportunity for carriers to earn money while traveling</h4>
+                <span>We offer carriers the opportunity to earn money while traveling to their destination by picking up parcels along the way.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Features End -->
+
+
+<!-- Video Modal Start -->
+<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-0">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Youtube Video</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- 16:9 aspect ratio -->
+        <div class="ratio ratio-16x9">
+          <iframe class="embed-responsive-item" src="" id="video" allowfullscreen
+                  allowscriptaccess="always" allow="autoplay"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Video Modal End -->
+
+
+<!-- Service Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+      <p class="fw-medium text-uppercase text-primary mb-2">Our Services</p>
+      <h3 class="display-5 mb-4">We Provide Best Industrial Services</h3>
+    </div>
+    <div class="row gy-5 gx-4">
+      <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="service-item">
+          <img class="img-fluid" src="../../assets/img/service-1.jpg" alt="">
+          <div class="service-img">
+            <img class="img-fluid" src="../../assets/img/service-1.jpg" alt="">
+          </div>
+          <div class="service-detail">
+            <div class="service-title">
+              <hr class="w-25">
+              <h3 class="mb-0">Easy Parcel Submission</h3>
+              <hr class="w-25">
+            </div>
+            <div class="service-text">
+              <p class="text-white mb-0">Our easy-to-use platform allows senders to
+                submit parcel details quickly and easily, without any hassle.</p>
+            </div>
+          </div>
+          <a class="btn btn-light" href="">Read More</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="service-item">
+          <img class="img-fluid" src="../../assets/img/service-2.jpg" alt="">
+          <div class="service-img">
+            <img class="img-fluid" src="../../assets/img/MinOrder.jpg" alt="">
+          </div>
+          <div class="service-detail">
+            <div class="service-title">
+              <hr class="w-25">
+              <h3 class="mb-0">No Minimum Order Requirement</h3>
+              <hr class="w-25">
+            </div>
+            <div class="service-text">
+              <p class="text-white mb-0">We do not have any minimum order requirements, so senders can send as many or
+                as few parcels as they need,
+                without any added pressure or costs.</p>
+            </div>
+          </div>
+          <a class="btn btn-light" href="">Read More</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="service-item">
+          <img class="img-fluid" src="../../assets/img/service-3.jpg" alt="">
+          <div class="service-img">
+            <img class="img-fluid" src="../../assets/img/service-3.jpg" alt="">
+          </div>
+          <div class="service-detail">
+            <div class="service-title">
+              <hr class="w-25">
+              <h3 class="mb-0">Transparent Pricing</h3>
+              <hr class="w-25">
+            </div>
+            <div class="service-text">
+              <p class="text-white mb-0">Our pricing is transparent and upfront,
+                so senders can avoid any hidden fees or surprises.</p>
+            </div>
+          </div>
+          <a class="btn btn-light" href="">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Service End -->
+
+<!--<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <section class="section bg-white text-center">
+        <div class="container module-container">
+          <h3 class="wow-outer">
+      <span class="wow slideInUp" style="visibility: visible; animation-name: slideInUp;">
+        How does it work?
+      </span>
+          </h3>
+          <p class="wow-outer" style="margin-top:20px;">
+      <span class="text-width-1 wow slideInDown"
+            style="visibility: visible; animation-name: slideInDown; font-weight: 400;">
+        Shipping with Parcel2Courier couldn't be easier... follow the online steps and your parcels will be at their destination in no time. Just make sure the person at the collection address has a printer handy, as the sender must print out the shipping labels we provide you on the order confirmation page!
+      </span>
+          </p>
+          <div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+              <img src="../../assets/img/HowItWorks1.png">
+              <p>
+                Go online, quote, pay, and print out your shipping label
+              </p>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+              <img src="../../assets/img/HowItWorks2.png">
+              <p>
+                The courier will come on your nominated pick up day
+              </p>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+              <img src="../../assets/img/HowItWorks3.png">
+              <p>
+                Your parcel will be taken to the local depot for processing
+              </p>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+              <img src="../../assets/img/HowItWorks4.png">
+              <p>
+                Your parcel arrives to the local delivery depot
+              </p>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+              <img src="../../assets/img/HowItWorks5.png">
+              <p>
+                The delivery driver will scan your parcel on-board for delivery
+              </p>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-12">
+              <img src="../../assets/img/HowItWorks6.png">
+              <p>
+                Your parcel will be delivered by 5pm on the delivery day
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>-->
+
+
+<!-- Project Start -->
+<!-- <div class="container-fluid bg-dark pt-5 my-5 px-0">
+    <div class="text-center mx-auto mt-5 wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+        <p class="fw-medium text-uppercase text-primary mb-2">Our Projects</p>
+        <h1 class="display-5 text-white mb-5">See What We Have Completed Recently</h1>
+    </div>
+    <div class="owl-carousel project-carousel wow fadeIn" data-wow-delay="0.1s">
+        <a class="project-item" href="">
+            <img class="img-fluid" src="../../assets/img/project-1.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">Auto Engineering</h5>
+            </div>
+        </a>
+        <a class="project-item" href="">
+            <img class="img-fluid" src="../../assets/img/project-2.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">Civil Engineering</h5>
+            </div>
+        </a>
+        <a class="project-item" href="">
+            <img class="img-fluid" src="../../assets/img/project-3.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">Gas Engineering</h5>
+            </div>
+        </a>
+        <a class="project-item" href="">
+            <img class="img-fluid" src="../../assets/img/project-4.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">Power Engineering</h5>
+            </div>
+        </a>
+        <a class="project-item" href="">
+            <img class="img-fluid" src="../../assets/img/project-5.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">Energy Engineering</h5>
+            </div>
+        </a>
+        <a class="project-item" href="">
+            <img class="img-fluid" src="../../assets/img/project-6.jpg" alt="">
+            <div class="project-title">
+                <h5 class="text-primary mb-0">Water Engineering</h5>
+            </div>
+        </a>
+    </div>
+</div> -->
+<!-- Project End -->
+
+
+<!-- Team Start -->
+<!--<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+      <p class="fw-medium text-uppercase text-primary mb-2">Our Team</p>
+      <h1 class="display-5 mb-5">Dedicated Team Members</h1>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="team-item">
+          <img class="img-fluid" src="../../assets/img/team-1.jpg" alt="">
+          <div class="d-flex">
+            <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
+              <i class="fa fa-2x fa-share text-white"></i>
+            </div>
+            <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4"
+                 style="height: 90px;">
+              <h5>Rob Miller</h5>
+              <span class="text-primary">CEO & Founder</span>
+              <div class="team-social">
+                <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                  class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                  class="fab fa-twitter"></i></a>
+                <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                  class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="team-item">
+          <img class="img-fluid" src="../../assets/img/team-2.jpg" alt="">
+          <div class="d-flex">
+            <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
+              <i class="fa fa-2x fa-share text-white"></i>
+            </div>
+            <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4"
+                 style="height: 90px;">
+              <h5>Adam Crew</h5>
+              <span class="text-primary">Project Manager</span>
+              <div class="team-social">
+                <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                  class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                  class="fab fa-twitter"></i></a>
+                <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                  class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="team-item">
+          <img class="img-fluid" src="../../assets/img/team-3.jpg" alt="">
+          <div class="d-flex">
+            <div class="flex-shrink-0 btn-square bg-primary" style="width: 90px; height: 90px;">
+              <i class="fa fa-2x fa-share text-white"></i>
+            </div>
+            <div class="position-relative overflow-hidden bg-light d-flex flex-column justify-content-center w-100 ps-4"
+                 style="height: 90px;">
+              <h5>Peter Farel</h5>
+              <span class="text-primary">Engineer</span>
+              <div class="team-social">
+                <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                  class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                  class="fab fa-twitter"></i></a>
+                <a class="btn btn-square btn-dark rounded-circle mx-1" href=""><i
+                  class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+<!-- Team End -->
+
+
+<!-- Testimonial Start -->
+<!-- <div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="fw-medium text-uppercase text-primary mb-2">Testimonial</p>
+            <h1 class="display-5 mb-5">What Our Clients Say!</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+            <div class="testimonial-item text-center">
+                <div class="testimonial-img position-relative">
+                    <img class="img-fluid rounded-circle mx-auto mb-5" src="../../assets/img/testimonial-1.jpg">
+                    <div class="btn-square bg-primary rounded-circle">
+                        <i class="fa fa-quote-left text-white"></i>
+                    </div>
+                </div>
+                <div class="testimonial-text text-center rounded p-4">
+                    <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna
+                        ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea
+                        clita.</p>
+                    <h5 class="mb-1">Client Name</h5>
+                    <span class="fst-italic">Profession</span>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <div class="testimonial-img position-relative">
+                    <img class="img-fluid rounded-circle mx-auto mb-5" src="../../assets/img/testimonial-2.jpg">
+                    <div class="btn-square bg-primary rounded-circle">
+                        <i class="fa fa-quote-left text-white"></i>
+                    </div>
+                </div>
+                <div class="testimonial-text text-center rounded p-4">
+                    <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna
+                        ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea
+                        clita.</p>
+                    <h5 class="mb-1">Client Name</h5>
+                    <span class="fst-italic">Profession</span>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <div class="testimonial-img position-relative">
+                    <img class="img-fluid rounded-circle mx-auto mb-5" src="../../assets/img/testimonial-3.jpg">
+                    <div class="btn-square bg-primary rounded-circle">
+                        <i class="fa fa-quote-left text-white"></i>
+                    </div>
+                </div>
+                <div class="testimonial-text text-center rounded p-4">
+                    <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna
+                        ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea
+                        clita.</p>
+                    <h5 class="mb-1">Client Name</h5>
+                    <span class="fst-italic">Profession</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Testimonial End -->

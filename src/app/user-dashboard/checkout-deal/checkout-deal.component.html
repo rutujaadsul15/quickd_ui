@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+</head>
+
+<body>
+<div class="container">
+  <div *ngIf="!paymentSuccessFlag" class=" text-center">
+    <img class="d-block mx-auto mb-4" src="../../../assets/img/SigninLogo.JPG" alt="" width="75" height="62">
+    <!--<h2>Pay and submit the deal</h2>-->
+  </div>
+  <main *ngIf="!paymentSuccessFlag">
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Order Summary</span>
+          <span class="badge bg-primary rounded-pill">1</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Deal total</h6>
+            </div>
+            <strong class="text-muted">₹ {{deal.dealTotal}}</strong>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>EXAMPLECODE</small>
+            </div>
+            <span class="text-success">−₹ 0</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <h5>Total (INR)</h5>
+            <strong>₹ {{deal.dealTotal}}</strong>
+          </li>
+        </ul>
+        <div>
+          <!-- <button class="w-100 btn btn-primary btn-lg" type="button" (click)="payUsingRazorpay()">Make Payment</button> THIS IS WORKING FOR TEST ENV-->
+          <!--<button class="w-100 btn btn-primary btn-lg" type="button" (click)="togglePayBuUpiFlag()">Pay with UPI
+          </button>-->
+          <div class="form-group form-floating">
+            <!-- <input type="text" class=" mt-2 mb-2 form-control" id="floatingInput" placeholder="yourupi@oksbi"
+                    [(ngModel)]="upiId" [ngModelOptions]="{standalone: true}">
+             <label for="floatingInput">Enter your UPI id</label>-->
+            <!--<button class="w-100 btn btn-primary btn-lg" type="button" (click)="payUsingUPI()">Submit</button>-->
+            <button class="w-100 btn btn-primary btn-lg" type="button" (click)="payUsingPhonePay()">Pay Now</button>
+          </div>
+          <!-- <button class="w-100 btn btn-primary btn-lg mt-3" type="button" (click)="loadSubmitDealComponent()">Cancel</button>-->
+        </div>
+
+       <!-- <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </form>-->
+      </div>
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Billing Details</h4>
+        <form class="needs-validation">
+          <fieldset disabled>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="{{deal.sender.senderFirstName}}"
+                       value="">
+              </div>
+
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="{{deal.sender.senderLastName}}"
+                       value="">
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Mobile Number</label>
+                <div class="input-group has-validation">
+                  <input type="text" class="form-control" id="contactNo"
+                         placeholder="{{deal.sender.senderContactNo}}">
+                </div>
+              </div>
+
+              <div class="col-md-5">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="country" placeholder="India">
+              </div>
+
+              <div class="col-md-4">
+                <label for="state" class="form-label">State</label>
+                <input type="text" class="form-control" id="state" placeholder="{{deal.dropLocation.state}}">
+              </div>
+
+              <div class="col-md-3">
+                <label for="zip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="zip" placeholder="{{deal.dropLocation.pinCode}}">
+              </div>
+            </div>
+          </fieldset>
+
+          <hr class="my-4">
+          <h4 class="mb-3">Parcel Details</h4>
+
+          <!-- <div class="my-3">
+            <div class="form-check">
+              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+              <label class="form-check-label" for="credit">Credit card</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="debit">Debit card</label>
+            </div>
+            <div class="form-check">
+              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="paypal">PayPal</label>
+            </div>
+          </div> -->
+
+          <div class="row gy-3">
+            <div class="col-md-6">
+              <label class="form-label">Parcel Item : {{deal.parcel.specialInstruction}}</label>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Parcel Weight : {{deal.parcel.parcelWeight}} Grams</label>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Parcel Length : {{deal.parcel.parcelLength}} Cms</label>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Total Distance : {{deal.dealDistanceInKilometers}} Kms</label>
+            </div>
+          </div>
+
+          <hr class="my-4">
+          <div>
+            <!-- <button class="w-100 btn btn-primary btn-lg" type="button" (click)="payUsingRazorpay()">Make Payment</button> THIS IS WORKING FOR TEST ENV-->
+            <!--<button class="w-100 btn btn-primary btn-lg" type="button" (click)="togglePayBuUpiFlag()">Pay with UPI
+            </button>-->
+            <div class="form-group form-floating">
+             <!-- <input type="text" class=" mt-2 mb-2 form-control" id="floatingInput" placeholder="yourupi@oksbi"
+                     [(ngModel)]="upiId" [ngModelOptions]="{standalone: true}">
+              <label for="floatingInput">Enter your UPI id</label>-->
+              <!--<button class="w-100 btn btn-primary btn-lg" type="button" (click)="payUsingUPI()">Submit</button>-->
+              <button class="w-100 btn btn-primary btn-lg" type="button" (click)="payUsingPhonePay()">Pay Now</button>
+            </div>
+            <!-- <button class="w-100 btn btn-primary btn-lg mt-3" type="button" (click)="loadSubmitDealComponent()">Cancel</button>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <div  *ngIf="paymentSuccessFlag" class="row g-5">
+    <div class="payment-success">
+      <div *ngIf="phonePeTransactionStatusResponse.success" class="payment-success">
+        <i class="bi bi-check-circle-fill success-icon"></i>
+        <h2>Payment Successful</h2>
+        <h5 *ngIf="phonePeTransactionStatusResponse">Order ID : <span id="order-id">{{phonePeTransactionStatusResponse.data.merchantTransactionId}}</span></h5>
+        <h5 *ngIf="phonePeTransactionStatusResponse">Amount : ₹ <span id="amount">{{phonePeTransactionStatusResponse.data.amount}}</span></h5>
+        <h5 *ngIf="phonePeTransactionStatusResponse">Transaction ID : <span id="transaction-id">{{phonePeTransactionStatusResponse.data.transactionId}}</span>
+        </h5>
+        <!--<div class="col d-flex justify-content-center">
+          <button class="w-40 btn btn-lg btn-primary" type="button" (click)="loadSubmitDealComponent()">Ok</button>
+        </div>-->
+      </div>
+      <div *ngIf="!phonePeTransactionStatusResponse.success" class="payment-success">
+        <i class="bi bi-x-circle-fill failure-icon"></i>
+        <h2>Payment Failed</h2>
+        <h5 *ngIf="phonePeTransactionStatusResponse">Order ID : <span id="order-id2">{{phonePeTransactionStatusResponse.data.merchantTransactionId}}</span></h5>
+        <h5 *ngIf="phonePeTransactionStatusResponse">Amount : ₹ <span id="amount2">{{phonePeTransactionStatusResponse.data.amount}}</span></h5>
+        <h5 *ngIf="phonePeTransactionStatusResponse">Transaction ID : <span id="transaction-id2">{{phonePeTransactionStatusResponse.data.transactionId}}</span></h5>
+        <h5 *ngIf="phonePeTransactionStatusResponse"><span id="transaction-id3">{{phonePeTransactionStatusResponse.message}}</span></h5>
+        <!--<div class="col d-flex justify-content-center">
+          <button class="w-40 btn btn-lg btn-primary" type="button" (click)="loadSubmitDealComponent()">Ok</button>
+        </div>-->
+      </div>
+      <div class="col d-flex justify-content-center">
+        <button class="w-40 btn btn-lg btn-primary" type="button" (click)="loadSubmitDealComponent()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="form-validation.js"></script>-->
+</body>
+</html>

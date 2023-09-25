@@ -1,0 +1,42 @@
+.adjust-tables{
+  flex-direction: column;
+  padding-top: 5rem;
+}
+
+
+table{
+  border: black;
+}
+
+.table-hover tr:hover {
+  background-color: lightgrey; /* Change to your desired background color */
+  cursor: pointer;
+}
+
+
+td{
+  color: black;
+}
+
+@media (max-width: 992px) {
+  .padding-for-container {
+    padding-top: 5rem !important;
+  }
+}
+
+.adjust-action-button-confirm{
+  font-size: 2rem;
+  color: green;
+}
+
+.adjust-action-button-cancel{
+  font-size: 2rem;
+  color: gray;
+  margin-left: 7%;
+}
+
+.adjust-action-button-cancel-active {
+  font-size: 2rem;
+  color: red;
+  margin-left: 7%;
+}

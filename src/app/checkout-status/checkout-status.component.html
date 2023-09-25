@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+</head>
+
+<body>
+<div class="container">
+  <div class="row g-5 pt-5">
+    <div *ngIf="phonePeTransactionStatusResponse && phonePeTransactionStatusResponse.success" class="payment-success">
+      <i class="bi bi-check-circle-fill success-icon"></i>
+      <h2>Payment Successful</h2>
+       <h5>Order ID : <span id="order-id">{{phonePeTransactionStatusResponse.data.merchantTransactionId}}</span></h5>
+       <h5>Amount : ₹ <span id="amount">{{phonePeTransactionStatusResponse.data.amount}}</span></h5>
+       <h5>Transaction ID : <span id="transaction-id">{{phonePeTransactionStatusResponse.data.transactionId}}</span>
+       </h5>
+      <div class="col d-flex justify-content-center">
+        <button class="w-40 btn btn-lg btn-primary" type="button" (click)="goToMyBookings()">Ok</button>
+      </div>
+    </div>
+    <div *ngIf="phonePeTransactionStatusResponse && !phonePeTransactionStatusResponse.success" class="payment-success">
+      <i class="bi bi-x-circle-fill failure-icon"></i>
+      <h2>Payment Failed</h2>
+      <h5>Order ID : <span id="order-id2">{{phonePeTransactionStatusResponse.data.merchantTransactionId}}</span></h5>
+      <h5>Amount : ₹ <span id="amount2">{{phonePeTransactionStatusResponse.data.amount}}</span></h5>
+      <h5>Transaction ID : <span id="transaction-id2">{{phonePeTransactionStatusResponse.data.transactionId}}</span></h5>
+      <h5><span id="transaction-id3">{{phonePeTransactionStatusResponse.message}}</span></h5>
+      <div class="col d-flex justify-content-center">
+        <button class="w-40 btn btn-lg btn-primary" type="button" (click)="goToSendNewParcel()">Try Again</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

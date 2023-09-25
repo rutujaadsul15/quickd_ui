@@ -1,0 +1,87 @@
+<!------******************************MY CREATED DEALS***********************************************---------->
+<div class="dashboard-wrapper">
+  <div class="container-xxl padding-for-container">
+    <div class="d-flex justify-content-center form-wrap adjust-tables">
+      <div *ngIf="dealResponse.pickUpDealList && dealResponse.pickUpDealList.length>0">
+        <h3 class="ml-3">My Pickups
+          <button type="button" class="btn btn-success" (click)="refresh()">Refresh <i class="bi bi-arrow-repeat"></i></button>
+        </h3>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+          <div class="table-responsive">
+            <table class="table align-middle table-hover">
+              <thead style="background-color: lightgray;">
+              <tr>
+                <th><h6>Receiver</h6></th>
+                <th><h6>Pickup</h6></th>
+                <th><h6>Drop</h6></th>
+                <th><h6>Receiver Contact</h6></th>
+                <!-- <th>Carrier Contact</th> -->
+                <th (click)="sort('dealTotal')"><h6>Amount</h6></th>
+                <th><h6>Status</h6></th>
+                <th><h6>Action</h6></th>
+              </tr>
+              </thead>
+              <tbody>
+
+              <tr *ngFor="let deal of dealResponse.pickUpDealList| paginate: config_for_pickupDeals;  let i=index">
+                <td (click)="viewDealDetails(deal)"> <h6>{{deal!.receiver!.receiverFirstName + ' ' +deal!.receiver!.receiverLastName}}</h6></td>
+                <td (click)="viewDealDetails(deal)"> <h6>{{deal!.pickUpLocation!.city}}<br></h6></td>
+                <td (click)="viewDealDetails(deal)"> <h6>{{deal!.dropLocation!.city}}</h6></td>
+                <td (click)="viewDealDetails(deal)"> <h6>{{deal!.receiver!.receiverContactNo}}</h6></td>
+                <td (click)="viewDealDetails(deal)"> <h6>₹ {{deal?.dealTotal || 100}}</h6></td>
+                <!-- ------------------------------------------------------------------------------ -->
+                <td (click)="viewDealDetails(deal)" *ngIf="deal.parcel.parcelStatus=='PENDING_FOR_CARRIER_ACCEPTANCE'">
+                  <span class="badge bg-primary">{{dealStatusMapForPickUpDeals.get(deal.parcel.parcelStatus)}}</span>
+                </td>
+                <td *ngIf="deal.parcel.parcelStatus=='PENDING_FOR_CARRIER_ACCEPTANCE'">
+                  <i class="bi bi-check-circle-fill adjust-action-button-confirm" (click)="acceptDeal(deal)"></i>
+                  <i class="bi bi-x-circle-fill adjust-action-button-cancel" (click)="cancelDeal(deal)"></i>
+                </td>
+                <!-- ------------------------------------------------------------------------------ -->
+                <td (click)="viewDealDetails(deal)" *ngIf="deal.parcel.parcelStatus=='PENDING_FOR_SENDER_CONFIRMATION'">
+                  <span class="badge bg-info">{{dealStatusMapForPickUpDeals.get(deal.parcel.parcelStatus)}}</span>
+                </td>
+                <td *ngIf="deal.parcel.parcelStatus=='PENDING_FOR_SENDER_CONFIRMATION'" >
+                  <div style="display: flex;">
+                    <i class="bi bi-x-circle-fill adjust-action-button-cancel-active" (click)="cancelDeal(deal)"></i>
+                  </div>
+                </td>
+                <!-- ------------------------------------------------------------------------------ -->
+                <td (click)="viewDealDetails(deal)" *ngIf="deal.parcel.parcelStatus=='LOCKED_BY_SENDER'">
+                  <span class="badge bg-secondary">{{dealStatusMapForPickUpDeals.get(deal.parcel.parcelStatus)}}</span>
+                </td>
+                <td *ngIf="deal.parcel.parcelStatus=='LOCKED_BY_SENDER'">
+                  <button type="button" class="btn btn-success" (click)="verifyOTPAndCompleteDeal(deal)">Mark as Delivered</button>
+                </td>
+                <!-- ------------------------------------------------------------------------------ -->
+                <td (click)="viewDealDetails(deal)" *ngIf="deal.parcel.parcelStatus=='DELIVERED'">
+                  <span class="badge bg-success">{{dealStatusMapForPickUpDeals.get(deal.parcel.parcelStatus)}}</span>
+                </td>
+                <td (click)="viewDealDetails(deal)" *ngIf="deal.parcel.parcelStatus=='DELIVERED'">
+                  <!-- <label><button type="button" class="btn btn-dark disabled">Cancel</button></label> -->
+                  <i class="bi bi-check-circle-fill adjust-action-button-confirm disabled"></i>
+                </td>
+                <!-- ------------------------------------------------------------------------------ -->
+                <td (click)="viewDealDetails(deal)" *ngIf="deal.parcel.parcelStatus=='CANCELLED_BY_SENDER' || deal.parcel.parcelStatus=='CANCELLED_BY_CARRIER'">
+                  <span class="badge bg-danger">{{dealStatusMapForPickUpDeals.get(deal.parcel.parcelStatus)}}</span>
+                </td>
+                <td (click)="viewDealDetails(deal)" *ngIf="deal.parcel.parcelStatus=='CANCELLED_BY_SENDER' || deal.parcel.parcelStatus=='CANCELLED_BY_CARRIER'">
+                  <i class="bi bi-x-circle-fill adjust-action-button-cancel disabled"></i>
+                </td>
+                <!-- ------------------------------------------------------------------------------ -->
+              </tr>
+              </tbody>
+            </table>
+            <pagination-controls (pageChange)="pageChangedForPickupDeals($event)"></pagination-controls>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!dealResponse.pickUpDealList || dealResponse.pickUpDealList.length === 0">
+        <div class="text-center">
+          <h4>No deals available</h4>
+          <!-- You can add additional content or styling here for the "No deals available" message -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+td{
+  color: black;
+}
+
+@media (max-width: 992px) {
+  .padding-for-container {
+    padding-top: 5rem !important;
+  }
+}
+
+.btn-color-orange{
+  color: #FF5E14;
+}
+
+.adjust-tables{
+  flex-direction: column;
+  padding-top: 5rem;
+}
+
+.adjust-action-button-confirm{
+  font-size: 2rem;
+  color: green;
+}
+
+table{
+  border: black;
+}
+
+.table-hover tr:hover {
+  background-color: lightgrey; /* Change to your desired background color */
+  cursor: pointer;
+}
+
+.adjust-action-button-trash{
+  font-size: 2rem;
+  color: black;
+  margin-left: 7%;
+}
+
+.date-time-picker-adjust{
+ margin-bottom: 2%;
+}
+
+
+
+@media (min-width: 992px) {
+  ngx-datetime-picker{
+    font-size: large;
+  }
+  ::ng-deep ngx-datetime-picker input {
+    padding: 1%;
+    border: 1px solid #ced4da;
+  }
+  ::ng-deep ngx-datetime-picker button {
+    border: 1px solid #ced4da;
+  }
+}
+
+@media (max-width: 992px) {
+  ::ng-deep ngx-datetime-picker input {
+    padding: 3%;
+    border: 1px solid #ced4da;
+  }
+  ::ng-deep ngx-datetime-picker button {
+    width: 50%;
+    border: 1px solid #ced4da;
+  }
+  ngx-datetime-picker{
+    font-size: medium;
+  }
+}
+
+@media (min-width: 992px) {
+  .justify-content-evenly {
+    justify-content: flex-start !important;
+  }
+}
+
+::ng-deep .calendar {
+  max-width: 25em !important; /* Your desired max-width */
+}
+
+/* Center text on small screens */
+@media (max-width: 767px) {
+  .custom-text-alignment {
+    text-align: center;
+  }
+}
+
+/* Align text to the left on medium and larger screens */
+@media (min-width: 768px) {
+  .custom-text-alignment {
+    text-align: left;
+  }
+}

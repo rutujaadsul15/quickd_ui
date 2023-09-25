@@ -1,0 +1,405 @@
+<div class="dashboard-wrapper">
+  <div class="container-xxl py-5">
+    <div class="container">
+      <div class="d-flex justify-content-center form-wrap adjust-tables">
+        <div *ngIf="!checkoutFlag && futureTripList && futureTripList.length<1" class="row g-5">
+          <div class="col-lg-6" data-wow-delay="0.5s">
+            <div class="col-12 text-center"> <!-- Center-align the label -->
+              <h4 class="mb-3 justify-content-center btn-color-orange">Send New Parcel</h4>
+            </div>
+
+            <form [formGroup]="dealForm" class="needs-validation">
+              <div id="signUpForm">
+                <div class="form-header d-flex mb-4">
+                  <span class="stepIndicator">Sender</span>
+                  <span class="stepIndicator">Receiver</span>
+                  <span class="stepIndicator">Pickup</span>
+                  <span class="stepIndicator">Drop</span>
+                  <span class="stepIndicator">Parcel</span>
+                </div>
+              </div>
+              <div *ngIf="currentStep === 0" class="row g-3 mb-3 wow fadeInRight" formGroupName="sender">
+                <div class="col-md-6">
+                  <fieldset disabled>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="firstName"
+                        formControlName="senderFirstName"
+                        placeholder="First Name"
+                      />
+                      <label>First Name</label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-md-6">
+                  <fieldset disabled>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="lastName"
+                        formControlName="senderLastName"
+                        placeholder="Last Name"
+                      />
+                      <label for="lastName">Last Name</label>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-12">
+                  <fieldset disabled>
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="senderContactNo"
+                        formControlName="senderContactNo"
+                        placeholder="Contact number"
+                      />
+                      <label for="contactNo">Mobile Number</label>
+                    </div>
+                  </fieldset>
+                </div>
+                <button class="btn btn-lg btn-color-orange" [disabled]="!isSenderValid()" (click)="nextStep()"><span><i
+                  class="bi bi-arrow-right-circle-fill fa-3x"></i></span></button>
+              </div>
+              <div *ngIf="currentStep === 1" class="row g-3 mb-3 wow fadeInRight" formGroupName="receiver">
+                <div class="col-12 text-center"> <!-- Center-align the label -->
+                  <h5>Enter Receiver Details</h5>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="receiverFirstName"
+                      formControlName="receiverFirstName"
+                      placeholder="First Name"
+                    />
+                    <label>Receiver First Name</label>
+                    <div
+                      *ngIf="
+                        dealForm.get('receiver')!.get('receiverFirstName')!
+                          .touched &&
+                        dealForm.get('receiver')!.get('receiverFirstName')!
+                          .invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      Enter valid receiver first name
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="receiverLastName"
+                      formControlName="receiverLastName"
+                      placeholder="Last Name"
+                    />
+                    <label>Receiver Last Name</label>
+                    <div
+                      *ngIf="
+                        dealForm.get('receiver')!.get('receiverLastName')!
+                          .touched &&
+                        dealForm.get('receiver')!.get('receiverLastName')!
+                          .invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      Receiver last name should be valid.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="receiverContactNo"
+                      formControlName="receiverContactNo"
+                      placeholder="Contact number"
+                      appPhoneNumberMaxLength
+                    />
+                    <label>Receiver Mobile Number</label>
+                    <div
+                      *ngIf="
+                        dealForm.get('receiver')!.get('receiverContactNo')!
+                          .touched &&
+                        dealForm.get('receiver')!.get('receiverContactNo')!
+                          .invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      Enter valid receiver mobile number
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-lg btn-color-orange" (click)="previousStep()"><span><i
+                    class="bi bi-arrow-left-circle-fill fa-3x"></i></span></button>
+                  <button class="btn btn-lg btn-color-orange" [disabled]="!isReceiverValid()" (click)="nextStep()">
+                    <span><i class="bi bi-arrow-right-circle-fill fa-3x"></i></span></button>
+                </div>
+              </div>
+              <div *ngIf="currentStep === 2" class="row g-3 mb-3 wow fadeInRight" formGroupName="pickUpLocation">
+                <div class="col-12 text-center"> <!-- Center-align the label -->
+                  <h5>Enter Pick Up Location</h5>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="addressLine"
+                      formControlName="addressLine"
+                      ngx-google-places-autocomplete
+                      (onAddressChange)="handlePickUpAddressChange($event)"
+                      placeholder="Contact number"
+                    />
+                    <label>Start typing your pickup location</label>
+                    <div
+                      *ngIf="
+                        dealForm.get('pickUpLocation')!.get('addressLine')!
+                          .touched &&
+                        dealForm.get('pickUpLocation')!.get('addressLine')!
+                          .invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      Enter valid pickup location
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="landmark"
+                      formControlName="landmark"
+                      placeholder="Landmark (Optional)"
+                    />
+                    <label>Landmark (Optional)</label>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-lg btn-color-orange" (click)="previousStep()"><span><i
+                    class="bi bi-arrow-left-circle-fill fa-3x"></i></span></button>
+                  <button class="btn btn-lg btn-color-orange" [disabled]="!isPickUpLocationValid()"
+                          (click)="nextStep()"><span><i class="bi bi-arrow-right-circle-fill fa-3x"></i></span></button>
+                </div>
+              </div>
+              <div *ngIf="currentStep === 3" class="row g-3 mb-3 wow fadeInRight" formGroupName="dropLocation">
+                <div class="col-12 text-center"> <!-- Center-align the label -->
+                  <h5>Enter Drop Location</h5>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="dropAddressLine"
+                      formControlName="addressLine"
+                      ngx-google-places-autocomplete
+                      (onAddressChange)="handleDropAddressChange($event)"
+                      placeholder="Contact number"
+                    />
+                    <label>Start typing your drop location</label>
+                    <div
+                      *ngIf="
+                        dealForm.get('dropLocation')!.get('addressLine')!
+                          .touched &&
+                        dealForm.get('dropLocation')!.get('addressLine')!
+                          .invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      Enter valid drop location
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="address"
+                      formControlName="landmark"
+                      placeholder="Contact number"
+                    />
+                    <label>Landmark (Optional)</label>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-lg btn-color-orange" (click)="previousStep()"><span><i
+                    class="bi bi-arrow-left-circle-fill fa-3x"></i></span></button>
+                  <button class="btn btn-lg btn-color-orange" [disabled]="!isDropLocationValid()" (click)="nextStep()">
+                    <span><i class="bi bi-arrow-right-circle-fill fa-3x"></i></span></button>
+                </div>
+              </div>
+              <div *ngIf="currentStep === 4" class="row g-3 mb-3 wow fadeInRight" formGroupName="parcel">
+                <div class="col-12 text-center"> <!-- Center-align the label -->
+                  <h5>Enter Parcel Details</h5>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="Length"
+                      formControlName="parcelLength"
+                      placeholder="Length"
+                    />
+                    <label>Parcel Approx. Length (in cms)</label>
+                    <div
+                      *ngIf="
+                        dealForm.get('parcel')!.get('parcelLength')!.touched &&
+                        dealForm.get('parcel')!.get('parcelLength')!.invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      Parcel length should be in range of 1 to 200 cms.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="parcelHeight"
+                      formControlName="parcelHeight"
+                      placeholder="Length"
+                    />
+                    <label>Parcel Approx. Height (in cms)</label>
+                    <div
+                      *ngIf="
+                        dealForm.get('parcel')!.get('parcelHeight')!.touched &&
+                        dealForm.get('parcel')!.get('parcelHeight')!.invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      Parcel height should be in range of 1 to 200 cms.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="Weight"
+                      formControlName="parcelWeight"
+                      placeholder="Weight"
+                    />
+                    <label>Parcel Approx. Weight (in grams)</label>
+                    <div
+                      *ngIf="
+                        dealForm.get('parcel')!.get('parcelWeight')!.touched &&
+                        dealForm.get('parcel')!.get('parcelWeight')!.invalid
+                      "
+                      class="alert alert-danger">
+                      Parcel weight should between 1 grams to 10,000 grams.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="contactNo"
+                      formControlName="specialInstruction"
+                      placeholder="Contact number"
+                    />
+                    <label for="contactNo">Parcel description, name, price, color etc.</label>
+                    <div
+                      *ngIf="
+                        dealForm.get('parcel')!.get('specialInstruction')!
+                          .touched &&
+                        dealForm.get('parcel')!.get('specialInstruction')!
+                          .invalid
+                      "
+                      class="alert alert-danger">
+                      Product details are required to enter
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-lg btn-color-orange" (click)="previousStep()"><span><i
+                    class="bi bi-arrow-left-circle-fill fa-3x"></i></span></button>
+                  <button [disabled]="!dealForm.valid" class="btn btn-lg btn-color-orange"
+                          (click)="checkFutureTripIfAvailable()" type="submit"><span><i
+                    class="bi bi-arrow-right-circle-fill fa-3x"></i></span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row" *ngIf="futureTripScreenFlag && futureTripList && futureTripList.length>0">
+          <h4 class="mb-3">Available pickups for your parcel</h4>
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+            <div class="table-responsive">
+              <table class="table align-middle table-hover">
+                <thead style="background-color: lightgray;">
+                <tr>
+                  <th><h5>Pickup Location</h5></th>
+                  <th><h5>Drop Location</h5></th>
+                  <th><h5>Date</h5></th>
+                  <!--  <th><h5>Details</h5></th>-->
+                  <th><h5>Action</h5></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let trip of futureTripList| paginate: config_for_futureTrips;  let i=index">
+                  <td (click)="viewTripDetails(trip)"><h6>{{trip!.pickupCity + ' ' + trip!.pickupPinCode}}</h6></td>
+                  <td (click)="viewTripDetails(trip)"><h6>{{trip!.dropCity + ' ' + trip!.dropPinCode}}</h6></td>
+                  <td (click)="viewTripDetails(trip)">
+                    <h6>{{trip!.dateAndTime | date:'dd-MMM-yyyy'}} {{trip!.dateAndTime | date:'shortTime'}}</h6></td>
+                  <!-- <td (click)="viewTripDetails(trip)"><h6><i class="bi bi-info-circle-fill adjust-action-button-trash">View Details</i></h6></td>-->
+                  <td>
+                    <div class="form-check">
+                      <input (change)="selectTrip($event, trip)" class="form-check-input" type="checkbox"
+                             name="exampleRadios" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault"><h6>Select this carrier</h6></label>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="pageChangedForFutureTrips($event)"></pagination-controls>
+              <!--              <div class="col-12">-->
+              <!--                <button (click)="loadFirstScreenOfSubmitDeal()" class="btn btn-primary py-3 px-5" type="button">Back</button>-->
+              <!--                <button (click)="calculateDealDistanceAndDealTotal()" class="btn btn-primary py-3 px-5" type="button">Next</button>-->
+              <!--              </div>-->
+
+            </div>
+            <div class="row">
+              <div class="col d-flex justify-content-start">
+                <button class="btn btn-lg btn-color-black" (click)="loadFirstScreenOfSubmitDeal()"><span><i
+                  class="bi bi-arrow-left-circle-fill fa-3x"></i></span></button>
+              </div>
+              <div class="col d-flex justify-content-end">
+                <button class="btn btn-lg btn-color-orange" (click)="calculateDealDistanceAndDealTotal()"><span><i
+                  class="bi bi-arrow-right-circle-fill fa-3x"></i></span></button>
+              </div>
+              <!-- <div class="col d-flex justify-content-start">
+                 <button class="btn btn-primary py-3 px-5">Back</button>
+               </div>
+               <div class="col d-flex justify-content-end">
+                 <button class="btn btn-primary py-3 px-5">Next</button>
+               </div>-->
+            </div>
+          </div>
+        </div>
+        <ng-container *ngIf="deal && checkoutFlag">
+          <app-checkout-deal [deal]="deal" (navigateToParent)="handleNavigateToParent()"></app-checkout-deal>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

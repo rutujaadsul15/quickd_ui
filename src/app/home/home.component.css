@@ -1,0 +1,58 @@
+
+.adjust-btn {
+    display: flex;
+    }
+
+
+@media (max-width: 768px) {
+    .px-5 {
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+    }
+}
+
+.carousel-image {
+  width: 100%;
+  object-fit: contain;
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .carousel-image {
+    height: auto;
+    max-height: 145px; /* Adjust the height as needed */
+  }
+
+  @media (max-width: 576px) {
+    .container-fluid.mb-5 {
+      margin-bottom: -30px; /* Adjust the value as needed */
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .desktop-image {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-image {
+    display: block;
+  }
+}
+
+/*.zoom-image {
+  background-image: url('../../assets/img/Partner_With_Banner.gif');
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 400px; !* Adjust the height as needed *!
+}
+
+@media (max-width: 576px) {
+  !* For mobile view *!
+  .zoom-image {
+    height: 200px; !* Adjust the height as needed *!
+  }
+}*/
