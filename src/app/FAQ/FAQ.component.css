@@ -1,0 +1,25 @@
+/* Style for the FAQ component */
+.faq {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+}
+
+/* Style for FAQ question */
+.faq-question {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for FAQ answer */
+.faq-answer {
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Add this CSS to your faq.component.css file */
+.faq-item h3.faq-question {
+    font-size: 18px;
+}
+

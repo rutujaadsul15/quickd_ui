@@ -20,6 +20,8 @@ import {SharedModule} from "./shared.module";
 import {TermsAndConditionsComponent} from "./termsandconditions/termsandconditions.component";
 import {CheckoutStatusComponent} from "./checkout-status/checkout-status.component";
 import {PrivacyPolicyComponent} from "./privacypolicy/privacypolicy.component"
+import {FAQComponent} from "./FAQ/FAQ.component"
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import {PrivacyPolicyComponent} from "./privacypolicy/privacypolicy.component"
     ContactusComponent,
     TermsAndConditionsComponent,
     CheckoutStatusComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    FAQComponent
 
   ],
   imports: [
